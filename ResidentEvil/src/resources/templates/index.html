@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/head"></th:block>
+</head>
+<body>
+<header>
+    <div th:replace="fragments/navbar"></div>
+</header>
+<main>
+    <div th:class="container">
+        <div th:class="jumbotron">
+            <th:block sec:authorize="!isAuthenticated()">
+                <h1>Welcome to Resident Evil!</h1>
+            </th:block>
+            <th:block sec:authorize="isAuthenticated()">
+                <h1 th:text="|Welcome, ${#authentication.name}|"></h1>
+            </th:block>
+        </div>
+    </div>
+</main>
+<footer></footer>
+</body>
+</html>
